@@ -1,10 +1,9 @@
 import Fastify from "fastify"
+import { userController } from "./controllers/users";
 
 const app = Fastify()
 
-app.get('/', (req, res) =>{
-  res.send('hello')
-})
+app.register(userController)
 
 const start = async () => {
   try {
