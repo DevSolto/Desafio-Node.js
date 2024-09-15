@@ -1,12 +1,12 @@
 import { FastifyInstance, FastifyReply, FastifyRequest } from "fastify";
 import { createUserSchema } from "../schemas/users";
-import { createUserService } from "../services/users";
+import { createUserService, getUsersService } from "../services/users";
 import { CustomError } from "../errors/users";
 import { ZodError } from "zod";
-import { prisma } from "../utils/prisma";
+import { authMiddleware } from "@/middlewares/auth";
 
 export async function userController(app: FastifyInstance) {
-  app.post('/api/users', async (req: FastifyRequest, res: FastifyReply) => {
+  app.post('/api/users', { preHandler: authMiddleware }, async (req: FastifyRequest, res: FastifyReply) => {
     try {
       const createUserBody = createUserSchema.parse(req.body)
 
@@ -22,21 +22,17 @@ export async function userController(app: FastifyInstance) {
           name: error.name,
           message: error.message
         })
+      } else {
+        res.status(500).send(error.message)
       }
     }
   })
   app.get('/api/users', async (req: FastifyRequest, res: FastifyReply) => {
     try {
-      res.status(200).send(await prisma.user.findMany())
+      const users = await getUsersService()
+      res.status(200).send(users)
     } catch (error) {
-      if (error instanceof ZodError) {
-        res.status(400).send(error.message)
-      } else if (error instanceof CustomError) {
-        res.status(error.statusCode).send({
-          name: error.name,
-          message: error.message
-        })
-      }
+      res.status(500).send(error)
     }
   })
 

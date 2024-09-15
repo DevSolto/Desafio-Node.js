@@ -1,9 +1,19 @@
 import Fastify from "fastify"
 import { userController } from "./controllers/users";
+import jwt from 'fastify-jwt';
+import { authController } from "./controllers/auth";
 
-const app = Fastify()
+const app = Fastify({
+  logger: true
+})
 
+app.register(authController)
 app.register(userController)
+
+app.register(jwt, {
+  secret: process.env.SECRET || '',
+});
+
 
 const start = async () => {
   try {
@@ -16,3 +26,5 @@ const start = async () => {
 };
 
 start();
+
+export default app

@@ -14,3 +14,7 @@ export async function getUserByCpfModel(cpf: string) {
     }
   })
 }
+export async function getUsersModel() {
+  return await prisma.user.findMany({
+  })
+}

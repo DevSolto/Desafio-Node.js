@@ -18,11 +18,14 @@
     "bcrypt": "^5.1.1",
     "easy-cpf": "^1.2.0",
     "fastify": "^4.28.1",
+    "fastify-jwt": "^4.2.0",
+    "jsonwebtoken": "^9.0.2",
     "prisma": "^5.19.1",
     "zod": "^3.23.8"
   },
   "devDependencies": {
     "@types/bcrypt": "^5.0.2",
+    "@types/fastify-jwt": "^0.8.1",
     "@types/node": "^22.5.5",
     "fastify-cli": "^6.3.0",
     "tsx": "^4.19.1",

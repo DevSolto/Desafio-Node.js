@@ -1,6 +1,6 @@
 import { Role } from "@prisma/client";
 import { ThisCpfIsAlreadyInUse } from "../errors/users";
-import { createUserModel, getUserByCpfModel } from "../models/users";
+import { createUserModel, getUserByCpfModel, getUsersModel } from "../models/users";
 import { CreateUserBody } from "../types/users";
 import bcrypt from 'bcrypt';
 
@@ -22,8 +22,11 @@ export async function createUserService(createUserBody: CreateUserBody) {
     cpf: createUserBody.cpf,
     role,
     passwordHash,
-    salt,
   })
 
   return createdUser
+}
+
+export async function getUsersService() {
+  return await getUsersModel()
 }

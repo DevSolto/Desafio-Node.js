@@ -1,14 +1,15 @@
-export class CustomError extends Error {
-  statusCode: number
+import { CustomError } from "./error"
 
-  constructor(message: string, statusCode: number = 400,) {
-    super(message)
-    this.statusCode = statusCode
-  }
-}
 
 export class ThisCpfIsAlreadyInUse extends CustomError {
   constructor() {
     super('This CPF is already in use')
   }
 }
+export class UserNotFound extends CustomError {
+  constructor() {
+    super('User not found', 404)
+  }
+}
+
+export { CustomError }

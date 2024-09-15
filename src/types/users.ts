@@ -7,7 +7,6 @@ export type CreateUserParams = {
   cpf: string
   role: Role
   passwordHash: string
-  salt: string
 }
 
 export type CreateUserBody = z.infer<typeof createUserSchema>
