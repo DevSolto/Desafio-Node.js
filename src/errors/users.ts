@@ -11,5 +11,8 @@ export class UserNotFound extends CustomError {
     super('User not found', 404)
   }
 }
-
-export { CustomError }
+export class UserDoesNotHaveTheRequiredRole extends CustomError {
+  constructor() {
+    super('User does not have the required role', 404)
+  }
+}

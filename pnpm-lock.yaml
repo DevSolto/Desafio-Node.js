@@ -39,6 +39,9 @@ importers:
       '@types/fastify-jwt':
         specifier: ^0.8.1
         version: 0.8.1
+      '@types/jsonwebtoken':
+        specifier: ^9.0.6
+        version: 9.0.6
       '@types/node':
         specifier: ^22.5.5
         version: 22.5.5
@@ -251,6 +254,9 @@ packages:
   '@types/fastify-jwt@0.8.1':
     resolution: {integrity: sha512-/LDBMAT/2WX7WJnei28WHN5JjmfZUqgiLZ7n8ZryCz0Ddcz6zP/NVHzDG8gc5Cwj8ssAjnCRExtU2gkFL6brnA==}
     deprecated: This is a stub types definition. fastify-jwt provides its own type definitions, so you do not need this installed.
+
+  '@types/jsonwebtoken@9.0.6':
+    resolution: {integrity: sha512-/5hndP5dCjloafCXns6SZyESp3Ldq7YjH3zwzwczYnjxIT0Fqzk5ROSYVGfFyczIue7IUEj8hkvLbPoLQ18vQw==}
 
   '@types/node@22.5.5':
     resolution: {integrity: sha512-Xjs4y5UPO/CLdzpgR6GirZJx36yScjh73+2NlLlkFRSoQN8B0DpfXPdZGnvVmLRLOsqDpOfTNv7D9trgGhmOIA==}
@@ -1158,6 +1164,10 @@ snapshots:
   '@types/fastify-jwt@0.8.1':
     dependencies:
       fastify-jwt: 4.2.0
+
+  '@types/jsonwebtoken@9.0.6':
+    dependencies:
+      '@types/node': 22.5.5
 
   '@types/node@22.5.5':
     dependencies:

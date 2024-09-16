@@ -6,4 +6,5 @@ export async function authMiddleware(req: FastifyRequest, res: FastifyReply) {
   } catch (err) {
     res.status(401).send({ message: 'Unauthorized' });
   }
+  
 }

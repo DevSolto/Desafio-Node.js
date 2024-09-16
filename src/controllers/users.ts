@@ -11,7 +11,6 @@ export async function userController(app: FastifyInstance) {
       const createUserBody = createUserSchema.parse(req.body)
 
       const createdUser = await createUserService(createUserBody)
-      console.log(createdUser);
 
       res.status(200).send(createdUser)
     } catch (error) {
