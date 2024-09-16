@@ -7,10 +7,22 @@ export async function createPermissionModel(data: CreatePermissionParams) {
   })
 }
 
-export async function getPermissionByName(name: string) {
-  return prisma.permission.findUnique({
-    where:{
+export async function getPermissionByNameModel(name: string) {
+  return await prisma.permission.findUnique({
+    where: {
       name
     }
   })
+}
+
+export async function deletePermissionByIdModel(id: string) {
+  return await prisma.permission.delete({
+    where: {
+      id
+    }
+  })
+}
+
+export async function getPermissionsModel() {
+  return await prisma.permission.findMany()
 }

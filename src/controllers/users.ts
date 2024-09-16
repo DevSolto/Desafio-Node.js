@@ -12,7 +12,7 @@ export async function userController(app: FastifyInstance) {
 
       const createdUser = await createUserService(createUserBody)
 
-      res.status(200).send(createdUser)
+      res.status(201).send(createdUser)
     } catch (error) {
       if (error instanceof ZodError) {
         res.status(400).send(error.message)
