@@ -18,10 +18,13 @@ app.register(jwt, {
 });
 
 
+const PORT = process.env.PORT || '3000'
+const HOST = '0.0.0.0'
+
 const start = async () => {
   try {
-    await app.listen({ port: 3000 });
-    console.log('Server listening on http://localhost:3000');
+    await app.listen({ host: HOST, port: parseInt(PORT) });
+    console.log('Server listening on http://localhost:' + PORT);
   } catch (error) {
     app.log.error(error);
     process.exit(1);
