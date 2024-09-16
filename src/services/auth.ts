@@ -27,5 +27,5 @@ export async function loginService(loginParams: LoginParams) {
       expiresIn: '100h'
     }
   )
-  return {token}
+  return { token }
 }

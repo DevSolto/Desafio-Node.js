@@ -1,8 +1,9 @@
 import Fastify from "fastify"
 import { userController } from "./controllers/users";
-import jwt from 'fastify-jwt';
+import jwt from '@fastify/jwt';
 import { authController } from "./controllers/auth";
 import { permissionController } from "./controllers/permissions";
+import 'module-alias/register';
 
 const app = Fastify({
   logger: true

@@ -1,9 +1,9 @@
 import { FastifyInstance, FastifyReply, FastifyRequest } from "fastify";
 import { createUserSchema } from "../schemas/users";
 import { createUserService, getUsersService } from "../services/users";
-import { CustomError } from "../errors/users";
 import { ZodError } from "zod";
-import { authMiddleware } from "@/middlewares/auth";
+import { authMiddleware } from "../middlewares/auth";
+import { CustomError } from "@/errors/error";
 
 export async function userController(app: FastifyInstance) {
   app.post('/api/users', { preHandler: authMiddleware }, async (req: FastifyRequest, res: FastifyReply) => {
@@ -22,11 +22,11 @@ export async function userController(app: FastifyInstance) {
           message: error.message
         })
       } else {
-        res.status(500).send(error.message)
+        res.status(500).send(error)
       }
     }
   })
-  app.get('/api/users', async (req: FastifyRequest, res: FastifyReply) => {
+  app.get('/api/users', async (_req: FastifyRequest, res: FastifyReply) => {
     try {
       const users = await getUsersService()
       res.status(200).send(users)

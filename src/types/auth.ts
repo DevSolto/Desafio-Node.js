@@ -1,9 +1,22 @@
-import { z } from "zod";
-import { loginBody } from "../schemas/auth";
+export type LoginParams = {
+  cpf: string
+  password: string
+}
 
-export type LoginParams = z.infer<typeof loginBody>
+export type AuthPayload = {
+  id: string;
+  role: 'ADMIN' | 'USER';
+  iat: number;
+  exp: number;
+};
 
-export type UserJWT = {
-  id: string
-  role: string
+export function isAuthPayload(value: any): value is AuthPayload {
+  return (
+    typeof value === 'object' &&
+    value !== null &&
+    typeof value.id === 'string' &&
+    (value.role === 'ADMIN' || value.role === 'USER') &&
+    typeof value.iat === 'number' &&
+    typeof value.exp === 'number'
+  );
 }

@@ -1,41 +1,32 @@
+// tsconfig.json
 {
   "compilerOptions": {
-    "target": "es2020",
-    "module": "commonjs",
-    "lib": [
-      "es2020"
-    ],
-    "allowJs": true,
-    "outDir": "./dist",
-    "rootDir": "./src",
-    "strict": true,
-    "esModuleInterop": true,
-    "forceConsistentCasingInFileNames": true,
-    "skipLibCheck": true,
-    "moduleResolution": "node",
-    "resolveJsonModule": true,
-    "noImplicitAny": true,
-    "strictNullChecks": true,
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
-    "noImplicitReturns": true,
-    "noFallthroughCasesInSwitch": true,
-    "baseUrl": "./src", // Define a base URL para o mapeamento
+    "baseUrl": "./src",
     "paths": {
       "@/*": [
         "*"
-      ] // Ajusta o caminho para importar de forma simples
+      ]
     },
+    "outDir": "./dist",
+    "moduleResolution": "node",
+    "target": "es2019",
+    "module": "commonjs",
+    "lib": [
+      "es2019"
+    ],
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "strict": true,
+    "resolveJsonModule": true,
     "typeRoots": [
       "./node_modules/@types",
-      "./src/types"
+      "./types"
     ]
   },
   "include": [
-    "src/**/*"
+    "src"
   ],
   "exclude": [
-    "node_modules",
-    "dist"
+    "node_modules"
   ]
 }
