@@ -34,7 +34,7 @@
 
 #### Documentação no Postman:
 
-- [ ] Atualizar a documentação das rotas no Postman.
+- [x] Atualizar a documentação das rotas no Postman.
 - [ ] Exportar o JSON do Postman para o projeto.
 
 ## Sprint 3: Refatoração, Testes e Documentação Final

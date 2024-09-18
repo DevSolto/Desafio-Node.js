@@ -8,3 +8,7 @@ export const createUserSchema = z.object({
   role: z.nativeEnum(Role).default('SALLER'),
   password: z.string().min(6, "Password must be at least 6 characters long"),
 });
+
+export const createUsersPermissionsSchema = z.object({
+  permissionId: z.string().cuid('This id is not valid')
+})
